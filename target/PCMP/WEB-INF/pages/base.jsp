@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: DELL
-  Date: 2020/11/13
-  Time: 13:26
+  Date: 2020/11/15
+  Time: 21:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,10 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/base.css">
-
+    <link rel="stylesheet" href="<c:url value="/css/base.css"/>">
 </head>
-
 <body>
 <nav class="navbar navbar-default">
     <div class="container">
@@ -34,7 +32,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img class="logo" src="image/pika.jpg" alt="...">
+                <img class="logo"src="<c:url value="/image/pika.jpg"/>" alt="...">
             </a>
         </div>
 
@@ -50,8 +48,8 @@
                         <li><a href="/class/schoolQuery">按学校专业查询</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="/class/catQuery">按专业大类查询</a></li>
-                                           <li role="separator" class="divider"></li>
-                                           <li><a href="/class/courseQuery">按课程名称查询</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/class/courseQuery">按课程名称查询</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,19 +60,14 @@
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
-                <li><a href="/class/user">你好</a></li>
-                <li><a href="/register/login">登录</a></li>
+                <li><a href="#">你好</a></li>
+                <li><a href="/class/test">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="main">
-
-    <a href="/register/login"><img src="image/Home.jpg" alt="..." ><br></a>
-
-</div>
 <script src="./try.js"></script>
 </body>
 </html>
