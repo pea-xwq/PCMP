@@ -23,7 +23,8 @@ public class TestMybatis {
         //获取代理对象
         CourseDao dao = session.getMapper(CourseDao.class);
         //查询所有数据
-        List<Course> cs = dao.findAll();
+        //List<Course> cs = dao.findBySchool();
+        List<Course> cs = dao.findByCategory();
         for(Course c :cs){
             System.out.println(c);
         }

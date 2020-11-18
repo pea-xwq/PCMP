@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface CourseDao {
-    @Select({"select * from course"})
-    public List<Course> findAll();
+
+    public List<Course> findBySchool();
+    public List<Course> findByCategory();
 }

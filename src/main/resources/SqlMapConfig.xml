@@ -23,7 +23,6 @@
 
     <!--    指定映射配置文件  映射配置文件的是每个dao独立的配置文件-->
     <mappers>
-<!--        <mapper resource="com/ssm/dao/CourseDao.xml"></mapper>-->
         <package name="com.ssm.dao"/>
     </mappers>
 </configuration>
