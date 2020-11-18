@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PCMP">
+    <output-path>$PROJECT_DIR$/out/artifacts/PCMP</output-path>
+    <root id="root">
+      <element id="archive" name="PCMP.jar">
+        <element id="module-output" name="PCMP" />
+      </element>
+    </root>
+  </artifact>
+</component>
