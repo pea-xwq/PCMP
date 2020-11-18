@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="pcmp" uuid="4ab41da0-5791-45f7-97d7-c4b0a9f57d05">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://rm-bp1b947i6w0p47wupoo.mysql.rds.aliyuncs.com:3306/pcmp</jdbc-url>
+    </data-source>
+  </component>
+</project>
