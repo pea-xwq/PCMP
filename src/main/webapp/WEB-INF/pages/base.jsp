@@ -45,15 +45,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/class/schoolQuery">按学校专业查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/schoolQuery">按学校专业查询</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/class/catQuery">按专业大类查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/catQuery">按专业大类查询</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/class/courseQuery">按课程名称查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/courseQuery">按课程名称查询</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
+            <form class="navbar-form navbar-left" action="/PCMP_war_exploded/class/courseQueryResult" method="get">
                 <div class="form-group">
                     <input name="q" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
