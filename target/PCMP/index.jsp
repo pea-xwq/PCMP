@@ -33,9 +33,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a href="${pageContext.request.contextPath}/class/test">测试</a>
             <a class="navbar-brand" href="#">
                 <img class="logo" src="image/pika.jpg" alt="...">
             </a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,7 +57,7 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
+            <form class="navbar-form navbar-left" action="${pageContext.request.contextPath}/class/courseQueryResult" method="get">
                 <div class="form-group">
                     <input name="q" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
@@ -63,7 +65,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="/class/user">你好</a></li>
-                <li><a href="/register/login">登录</a></li>
+                <li><a href="/PCMP_war_exploded/register/login">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

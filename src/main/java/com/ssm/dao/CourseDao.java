@@ -9,4 +9,5 @@ public interface CourseDao {
 
     public List<Course> findBySchool();
     public List<Course> findByCategory();
+    public List<Course> findByName(String s);
 }

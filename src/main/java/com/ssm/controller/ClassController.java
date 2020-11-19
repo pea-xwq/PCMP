@@ -9,7 +9,7 @@ public class ClassController {
     @RequestMapping("/test")
     public String test(){
         System.out.println("这是一个测试方法");
-        return "login";
+        return "test";
     }
     @RequestMapping("/recommend")
     public String recommend(){
