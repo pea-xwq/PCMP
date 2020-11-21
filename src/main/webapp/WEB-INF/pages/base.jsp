@@ -61,7 +61,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="#">你好</a></li>
-                <li><a href="/class/test">登录</a></li>
+                <li><a href="/PCMP_war_exploded/class/test">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

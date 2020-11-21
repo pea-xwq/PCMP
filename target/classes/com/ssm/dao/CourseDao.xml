@@ -31,10 +31,26 @@
         select course.*,majors.* from course,majors
         where course.mid = majors.mid
     </select>
+<<<<<<< HEAD
     <select id="findAllByCategory" resultMap="courseByCategory">
+=======
+
+    <select id="findBySchool1" parameterType="java.lang.String" resultMap="courseBySchool">
+            select course.*,majors.* from majors,course
+            where majors.sname like concat('%',#{arg1},'%')
+            and majors.mname like concat ('%',#{arg0},'%') and course.mid = majors.mid
+        </select>
+
+    <select id="findByCategory" resultMap="courseByCategory">
+>>>>>>> origin/master
         select course.*,category.*,majors.sname from course,majors,category
-        where course.mid = majors.mid and course.cid=category.cid
+        where category.cid=course.cid and course.mid = majors.mid
     </select>
+     <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
+            select course.*,category.*,majors.sname from category,course,majors
+            where category.tname like concat('%',#{tn},'%') and category.cid=course.cid and course.mid = majors.mid
+        </select>
+
     <select id="findByName" parameterType="java.lang.String" resultMap="courseByName">
         select course.*,majors.sname from course,majors
         where course.cname like concat('%',#{s},'%') and course.mid = majors.mid
