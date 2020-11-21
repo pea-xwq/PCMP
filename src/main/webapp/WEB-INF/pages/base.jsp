@@ -39,8 +39,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
-                <li><a href="/class/recommend">课程</a></li>
+                <li><a href="/PCMP_war_exploded/class/home">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="/PCMP_war_exploded/class/recommend">课程</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>
@@ -61,7 +61,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="#">你好</a></li>
-                <li><a href="/class/test">登录</a></li>
+                <li><a href="/PCMP_war_exploded/class/test">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

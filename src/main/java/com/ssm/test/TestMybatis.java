@@ -27,7 +27,9 @@ public class TestMybatis {
         //查询所有数据
         //List<Course> cs = dao.findBySchool();
         //List<Course> cs = dao.findByCategory();
-        List<Course> cs = dao.findByName("生物");
+        //List<Course> cs = dao.findByName("生物");
+        //List<Course> cs = dao.findByCategory1("生命");
+        List<Course> cs = dao.findBySchool1("","学院");
         for(Course c :cs){
             System.out.println(c);
         }
@@ -49,9 +51,9 @@ public class TestMybatis {
         //User u = dao.findById(2);
         //User u = dao.findByTelephone("15172338589");
         User u = new User();
-        u.setUserName("a");
-        u.setTelephone("11");
-        u.setPassword("22");
+        u.setUserName("aa");
+        u.setTelephone("1111");
+        u.setPassword("2222");
         dao.saveUser(u);
         session.commit();
         System.out.println(u);
