@@ -7,16 +7,16 @@
     <resultMap id="courseBySchool" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
         <result property="cName" column="cName"></result>
-        <result property="mId" column="mid"></result>
         <result property="cInfo" column="cinfo"></result>
+        <result property="mId" column="mid"></result>
         <result property="mName" column="mname"></result>
         <result property="sName" column="sname"></result>
     </resultMap>
     <resultMap id="courseByCategory" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
         <result property="cName" column="cName"></result>
-        <result property="tId" column="tid"></result>
         <result property="cInfo" column="cinfo"></result>
+        <result property="tId" column="tid"></result>
         <result property="tName" column="tname"></result>
         <result property="sName" column="sname"></result>
     </resultMap>
@@ -27,11 +27,11 @@
         <result property="sName" column="sname"></result>
     </resultMap>
 
-    <select id="findBySchool" resultMap="courseBySchool">
+    <select id="findAllBySchool" resultMap="courseBySchool">
         select course.*,majors.* from course,majors
         where course.mid = majors.mid
     </select>
-    <select id="findByCategory" resultMap="courseByCategory">
+    <select id="findAllByCategory" resultMap="courseByCategory">
         select course.*,category.*,majors.sname from course,majors,category
         where course.mid = majors.mid and course.cid=category.cid
     </select>

@@ -5,7 +5,8 @@
   Time: 17:52
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ include file="base.jsp"%>
 <html>
 <head>
@@ -47,33 +48,23 @@
         <strong>Warning!</strong> 请先登录再参与课程
     </div>
 
+    <cc:forEach var="course" items="courses">
     <tr>
-
-        <th scope="row" name="cname"></th>
-        <td name="school"></td>
-        <td name="majors"></td>
+        <th scope="row" name="cname">${course.cName}</th>
+        <td name="school">${course.sName}</td>
+        <td name="majors">${course.mName}</td>
         <td name="cinfo"><a href="#"> 课程详情 </a></td>
         <td><a href="#">评论</a></td>
 
         <form action="#" method="post">
             <td>
-
                 <button class="btn btn-primary btn-block" id="btn" onclick=alert('已加入参与课程，请到个人中心查看！')>
                     参与课程
                 </button>
             </td>
         </form>
-
-<%--        <form action="{{ url_for('attend', acid = course.cid) }}" method="post">--%>
-<%--            <td>--%>
-<%--                <button class="btn btn-primary btn-block" disabled="disabled" title="参与课程请先登录！">--%>
-<%--                    参与课程--%>
-<%--                </button>--%>
-<%--            </td>--%>
-<%--        </form>--%>
-
     </tr>
-
+    </cc:forEach>
     </tbody>
 </table>
 

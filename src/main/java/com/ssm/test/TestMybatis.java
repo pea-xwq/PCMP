@@ -36,6 +36,8 @@ public class TestMybatis {
         in.close();
 
     }
+
+
     @Test
     public void run2() throws Exception{
         //加载配置文件

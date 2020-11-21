@@ -5,7 +5,7 @@
   Time: 21:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
@@ -39,21 +39,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
-                <li><a href="/class/recommend">课程</a></li>
+                <li><a href="/PCMP_war_exploded/class/home">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="/PCMP_war_exploded/class/recommend">课程</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/class/schoolQuery">按学校专业查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/schoolQuery">按学校专业查询</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/class/catQuery">按专业大类查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/catQuery">按专业大类查询</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/class/courseQuery">按课程名称查询</a></li>
+                        <li><a href="/PCMP_war_exploded/class/courseQuery">按课程名称查询</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
+            <form class="navbar-form navbar-left" action="/PCMP_war_exploded/class/courseQueryResult" method="get">
                 <div class="form-group">
                     <input name="q" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
