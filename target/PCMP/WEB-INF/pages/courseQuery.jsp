@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="base.jsp"%>
+<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>按课程查询</title>
@@ -14,7 +16,6 @@
 </head>
 <body>
 <h3 class="page-title" style="text-align: center">课程名字查询</h3>
-
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
@@ -26,13 +27,16 @@
     </tr>
     </thead>
     <tbody>
+<cr:choose>
+    <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Warning!</strong> 请先登录再参与课程
+        </div>
+    </cr:when>
 
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        <strong>Warning!</strong> 请先登录再参与课程
-    </div>
-
+</cr:choose>
     <tr>
         <th scope="row"></th>
         <td></td>

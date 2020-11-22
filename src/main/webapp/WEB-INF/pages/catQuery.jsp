@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="base.jsp"%>
+
 <html>
 <head>
     <title>按专业查询</title>
@@ -36,26 +37,45 @@
     </tr>
     </thead>
     <tbody>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        <strong>Warning!</strong> 请先登录再参与课程
-    </div>
+    <cr:choose>
+        <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning!</strong> 请先登录再参与课程
+            </div>
+        </cr:when>
 
+    </cr:choose>
     <tr>
         <th scope="row"></th>
         <td></td>
         <td></td>
         <td><a href="#">课程详情</a></td>
-        <td><a href="#">评论(</a></td>
+        <td><a href="#">评论</a></td>
+        <cr:choose>
+            <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" disabled="disabled" title="参与课程请先登录！">
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cr:when>
+            <cr:otherwise>
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" id="btn" onclick=alert('已经取消课程')>
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cr:otherwise>
 
-        <form action="#" method="post">
-            <td>
-                <button class="btn btn-primary btn-block" id="btn" onclick=alert('已加入参与课程，请到个人中心查看！')>
-                    参与课程
-                </button>
-            </td>
-        </form>
+
+        </cr:choose>
+
 
 
 

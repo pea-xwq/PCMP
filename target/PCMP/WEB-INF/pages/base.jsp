@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -60,9 +62,22 @@
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
-                <li><a href="#">你好</a></li>
-                <li><a href="/class/test">登录</a></li>
-                <li></li>
+                <cr:choose>
+                    <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+                        <li><a href="#">你好</a></li>
+                        <li><a href="/register/login">登录/注册</a></li>
+                    </cr:when>
+                    <cr:otherwise>
+
+                        <li><a href="/register/userCenter">${sessionScope.USER_SESSION.telephone}</a></li>
+                        <li><a href="/register/logout">退出登录</a></li>
+                    </cr:otherwise>
+
+
+                </cr:choose>
+
+
+
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->
         </div><!-- /.navbar-collapse -->

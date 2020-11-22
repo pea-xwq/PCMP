@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -36,17 +37,17 @@
                 <p class="card-text">第三方注册</p>
                 <p class="badge-wrap"><a class="badge"><i class="fab fa-facebook-f"></i></a><a class="badge"><i class="fab fa-google"></i></a><a class="badge"><i class="fab fa-twitter"></i></a><a class="badge"><i class="fab fa-github"></i></a></p>
                 <p>使用您的手机号进行注册</p>
-                <form>
+                <form action="/register/registerTest" method="post">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="名称" required="required" />
+                        <input class="form-control" type="text" placeholder="名称" name="userName" required="required" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="手机号码" required="required" />
+                        <input class="form-control" type="text" placeholder="手机号码" name="telephone" required="required" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" placeholder="密码" required="required" />
+                        <input class="form-control" type="password" placeholder="密码" name="password" required="required" />
                     </div>
-                    <button class="btn btn-lg"><a href="/class/home">注册</a></button>
+                    <button class="btn btn-lg" type="submit">注册</button>
                 </form>
             </div>
             <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
@@ -57,15 +58,16 @@
                 <p>第三方登录</p>
                 <p class="badge-wrap"><a class="badge"><i class="fab fa-facebook-f"></i></a><a class="badge"><i class="fab fa-google"></i></a><a class="badge"><i class="fab fa-twitter"></i></a><a class="badge"><i class="fab fa-github"></i></a></p>
                 <p>手机号码登录</p>
-                <form>
+                <form action="/register/loginTest" method="post">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="手机号码" value="前11位为有效位" required="required" />
+                        <input class="form-control" type="text" placeholder="手机号码" value="前11位为有效位" required="required" name="loginTelephone"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" placeholder="密码" required="required" />
+                        <input class="form-control" type="password" placeholder="密码" name="loginPassword" required="required" />
                     </div>
                     <p><a href="#">忘记密码?</a></p>
-                    <button class="btn btn-lg"><a href="/class/home">登录</a></button>
+                    <button class="btn btn-lg" type="submit">登录</button>
+
                 </form>
             </div>
             <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
