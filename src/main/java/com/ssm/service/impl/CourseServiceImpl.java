@@ -8,8 +8,18 @@ import java.util.List;
 
 @Service("courseService")
 public class CourseServiceImpl implements CourseService {
-    public List<Course> findAll(){
-        System.out.println("查询所有");
+    @Override
+    public List<Course> findBySchool() {
+        return null;
+    }
+
+    @Override
+    public List<Course> findByCategory() {
+        return null;
+    }
+
+    @Override
+    public List<Course> findByName(String s) {
         return null;
     }
 }

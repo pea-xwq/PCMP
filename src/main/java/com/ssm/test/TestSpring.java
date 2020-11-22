@@ -10,7 +10,7 @@ public class TestSpring {
     public void run1(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         CourseService cs = (CourseService)ac.getBean("courseService");
-        cs.findAll();
+        //cs.findAll();
 
     }
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.dao.CourseDao">
+    <resultMap id="courseBySchool" type="com.ssm.domain.Course">
+        <id property="cId" column="cid"></id>
+        <result property="cName" column="cName"></result>
+        <result property="mId" column="mid"></result>
+        <result property="cInfo" column="cinfo"></result>
+        <result property="mName" column="mname"></result>
+        <result property="sName" column="sname"></result>
+    </resultMap>
+    <resultMap id="courseByCategory" type="com.ssm.domain.Course">
+        <id property="cId" column="cid"></id>
+        <result property="cName" column="cName"></result>
+        <result property="tId" column="tid"></result>
+        <result property="cInfo" column="cinfo"></result>
+        <result property="tName" column="tname"></result>
+        <result property="sName" column="sname"></result>
+    </resultMap>
+    <resultMap id="courseByName" type="com.ssm.domain.Course">
+        <id property="cId" column="cid"></id>
+        <result property="cName" column="cName"></result>
+        <result property="cInfo" column="cinfo"></result>
+        <result property="sName" column="sname"></result>
+    </resultMap>
+
+    <select id="findBySchool" resultMap="courseBySchool">
+        select course.*,majors.* from course,majors
+        where course.mid = majors.mid
+    </select>
+
+    <select id="findBySchool1" parameterType="java.lang.String" resultMap="courseBySchool">
+            select course.*,majors.* from majors,course 
+            where majors.sname like concat('%',#{arg1},'%')
+            and majors.mname like concat ('%',#{arg0},'%') and course.mid = majors.mid
+        </select>
+
+    <select id="findByCategory" resultMap="courseByCategory">
+        select course.*,category.*,majors.sname from course,majors,category
+        where category.cid=course.cid and course.mid = majors.mid
+    </select>
+     <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
+            select course.*,category.*,majors.sname from category,course,majors
+            where category.tname like concat('%',#{tn},'%') and category.cid=course.cid and course.mid = majors.mid
+        </select>
+
+    <select id="findByName" parameterType="java.lang.String" resultMap="courseByName">
+        select course.*,majors.sname from course,majors
+        where course.cname like concat('%',#{s},'%') and course.mid = majors.mid
+    </select>
+</mapper>

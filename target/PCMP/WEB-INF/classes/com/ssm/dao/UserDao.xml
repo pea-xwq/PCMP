@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.dao.UserDao">
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.ssm.domain.User">
+    select * from user where id=#{id};
+    </select>
+    <select id="findByTelephone" parameterType="java.lang.String" resultType="com.ssm.domain.User">
+      select * from user where telephone=#{telephone};
+      </select>
+    <select id="findByEmail" parameterType="java.lang.String" resultType="com.ssm.domain.User">
+       select * from user where email=#{email};
+     </select>
+     <insert id="saveUser" parameterType="com.ssm.domain.User">
+      insert into user(telephone,email,username,password)
+      values (#{telephone},#{email},#{userName},#{password})
+     </insert>
+</mapper>
