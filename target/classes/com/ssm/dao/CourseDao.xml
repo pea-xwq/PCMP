@@ -33,7 +33,7 @@
     </select>
 
     <select id="findBySchool1" parameterType="java.lang.String" resultMap="courseBySchool">
-            select course.*,majors.* from majors,course
+            select course.*,majors.* from majors,course 
             where majors.sname like concat('%',#{arg1},'%')
             and majors.mname like concat ('%',#{arg0},'%') and course.mid = majors.mid
         </select>
