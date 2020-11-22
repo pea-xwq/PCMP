@@ -12,9 +12,6 @@ import java.util.List;
 @Repository
 public interface CourseDao {
 
-    public List<Course> findAllBySchool();
-    public List<Course> findAllByCategory();
-
     public List<Course> findBySchool();
     public List<Course> findBySchool1(String arg1,String arg0);
     public List<Course> findByCategory();

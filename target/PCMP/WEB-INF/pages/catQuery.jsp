@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ include file="base.jsp"%>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>按专业查询</title>
@@ -42,10 +43,11 @@
         <strong>Warning!</strong> 请先登录再参与课程
     </div>
 
+    <cc:forEach var="course" items="${courses}">
     <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
+        <th scope="row" name="cats">${course.tName}</th>
+        <td name="cname">${course.cName}</td>
+        <td name="school">${course.sName}</td>
         <td><a href="#">课程详情</a></td>
         <td><a href="#">评论(</a></td>
 
@@ -56,10 +58,8 @@
                 </button>
             </td>
         </form>
-
-
-
     </tr>
+    </cc:forEach>
     </tbody>
 </table>
 </body>

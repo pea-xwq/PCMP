@@ -4,16 +4,24 @@ import com.ssm.dao.CourseDao;
 import com.ssm.dao.UserDao;
 import com.ssm.domain.Course;
 import com.ssm.domain.User;
+import com.ssm.service.CourseService;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.io.InputStream;
 import java.util.List;
 
+@Controller
 public class TestMybatis {
+
+    @Autowired
+    private CourseDao courseDao;
+
     @Test
     public void run1() throws Exception{
         //加载配置文件
@@ -25,18 +33,13 @@ public class TestMybatis {
         //获取代理对象
         CourseDao dao = session.getMapper(CourseDao.class);
         //查询所有数据
-        //List<Course> cs = dao.findBySchool();
-        //List<Course> cs = dao.findByCategory();
+        List<Course> cs = dao.findBySchool();
+//        List<Course> cs = dao.findByCategory();
         //List<Course> cs = dao.findByName("生物");
-        //List<Course> cs = dao.findByCategory1("生命");
-        List<Course> cs = dao.findBySchool1("","学院");
-        for(Course c :cs){
-            System.out.println(c);
-        }
+//        List<Course> cs = dao.findByCategory1("生命");
         //关闭资源
         session.close();
         in.close();
-
     }
 
 

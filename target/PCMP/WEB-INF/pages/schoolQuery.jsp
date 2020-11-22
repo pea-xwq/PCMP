@@ -48,7 +48,7 @@
         <strong>Warning!</strong> 请先登录再参与课程
     </div>
 
-    <cc:forEach var="course" items="courses">
+    <cc:forEach var="course" items="${courses}">
     <tr>
         <th scope="row" name="cname">${course.cName}</th>
         <td name="school">${course.sName}</td>

@@ -27,7 +27,7 @@
         <result property="sName" column="sname"></result>
     </resultMap>
 
-    <select id="findAllBySchool" resultMap="courseBySchool">
+    <select id="findBySchool" resultMap="courseBySchool">
         select course.*,majors.* from course,majors
         where course.mid = majors.mid
     </select>
@@ -42,7 +42,8 @@
         select course.*,category.*,majors.sname from course,majors,category
         where category.cid=course.cid and course.mid = majors.mid
     </select>
-     <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
+
+    <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
             select course.*,category.*,majors.sname from category,course,majors
             where category.tname like concat('%',#{tn},'%') and category.cid=course.cid and course.mid = majors.mid
         </select>
