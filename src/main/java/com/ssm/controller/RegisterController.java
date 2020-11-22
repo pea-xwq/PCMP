@@ -58,6 +58,9 @@ public class RegisterController {
 
         return "userCenter";
     }
+    @RequestMapping(value = "/forgetPwd")
+    public String forgetPwd(){
 
-
+        return "forgetPwd";
+    }
 }

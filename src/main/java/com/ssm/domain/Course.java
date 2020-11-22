@@ -46,38 +46,6 @@ public class Course implements Serializable {
         this.tId = tId;
     }
 
-    public String gettName() {
-        return tName;
-    }
-
-    public void settName(String tName) {
-        this.tName = tName;
-    }
-
-    public Integer getAttend() {
-        return attend;
-    }
-
-    public void setAttend(Integer attend) {
-        this.attend = attend;
-    }
-
-    public Integer getcId() {
-        return cId;
-    }
-
-    public void setcId(Integer cId) {
-        this.cId = cId;
-    }
-
-    public Integer getmId() {
-        return mId;
-    }
-
-    public void setmId(Integer mId) {
-        this.mId = mId;
-    }
-
     public String getcName() {
         return cName;
     }

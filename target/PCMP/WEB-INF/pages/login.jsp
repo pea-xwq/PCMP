@@ -42,6 +42,9 @@
                         <input class="form-control" type="text" placeholder="名称" name="userName" required="required" />
                     </div>
                     <div class="form-group">
+                        <input class="form-control" type="email" placeholder="邮箱" name="userName" required="required" />
+                    </div>
+                    <div class="form-group">
                         <input class="form-control" type="text" placeholder="手机号码" name="telephone" required="required" />
                     </div>
                     <div class="form-group">
@@ -65,7 +68,7 @@
                     <div class="form-group">
                         <input class="form-control" type="password" placeholder="密码" name="loginPassword" required="required" />
                     </div>
-                    <p><a href="#">忘记密码?</a></p>
+                    <p><a href="/register/forgetPwd">忘记密码?</a></p>
                     <button class="btn btn-lg" type="submit">登录</button>
 
                 </form>

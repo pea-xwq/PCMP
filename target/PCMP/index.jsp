@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-           
             <a class="navbar-brand" href="#">
                 <img class="logo" src="image/pika.jpg" alt="...">
             </a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,7 +56,7 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
+            <form class="navbar-form navbar-left" action="${pageContext.request.contextPath}/class/courseQueryResult" method="get">
                 <div class="form-group">
                     <input name="q" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
