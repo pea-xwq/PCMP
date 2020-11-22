@@ -2,6 +2,9 @@ package com.ssm.domain;
 
 import java.io.Serializable;
 
+/**
+ * 用户
+ */
 public class User implements Serializable {
     private Integer id;
     private String telephone;

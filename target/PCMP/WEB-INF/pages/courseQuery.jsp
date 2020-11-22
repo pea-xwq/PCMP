@@ -5,7 +5,8 @@
   Time: 14:04
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="base.jsp"%>
 <%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -45,7 +46,6 @@
         <form action="" method="post">
             <td>
                 <input type="button" class="btn btn-primary btn-block" value="参与课程" onclick=alert('已加入参与课程，请到个人中心查看！')>
-
             </td>
         </form>
 
