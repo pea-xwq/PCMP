@@ -5,8 +5,11 @@
   Time: 17:52
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ include file="base.jsp"%>
+<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>按学校查询</title>
@@ -15,7 +18,7 @@
 <body>
 <h3 class="page-title" style="text-align: center">学校专业查询</h3><br>
 
-<form class="form-inline" action="" method="get">
+<form class="form-inline" action="/class/schoolQueryResult" method="get">
     <div class="form-group">
         <label for="exampleInputName2">学校</label>
         <input name="s" type="text" class="form-control" id="exampleInputName2" placeholder="请输入学校名称">
@@ -41,28 +44,47 @@
     </thead>
     <tbody>
 
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        <strong>Warning!</strong> 请先登录再参与课程
-    </div>
+    <cr:choose>
+        <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning!</strong> 请先登录再参与课程
+            </div>
+        </cr:when>
 
+<<<<<<< HEAD
+    <cc:forEach var="course" items="${courses}">
+    <tr>
+        <th scope="row" name="cname">${course.cName}</th>
+        <td name="school">${course.sName}</td>
+        <td name="majors">${course.mName}</td>
+=======
+    </cr:choose>
+
+<cr:forEach items="${courses}" var="node">
     <tr>
 
-        <th scope="row" name="cname"></th>
-        <td name="school"></td>
+        <th scope="row" name="cname"> <cr:out value="${node.cName}"></cr:out>
+        </th>
+        <td name="school"><cr:out value="${node.cInfo}"></cr:out></td>
         <td name="majors"></td>
+>>>>>>> origin
         <td name="cinfo"><a href="#"> 课程详情 </a></td>
         <td><a href="#">评论</a></td>
 
         <form action="#" method="post">
             <td>
-
                 <button class="btn btn-primary btn-block" id="btn" onclick=alert('已加入参与课程，请到个人中心查看！')>
                     参与课程
                 </button>
             </td>
         </form>
+<<<<<<< HEAD
+    </tr>
+    </cc:forEach>
+=======
+
 
 <%--        <form action="{{ url_for('attend', acid = course.cid) }}" method="post">--%>
 <%--            <td>--%>
@@ -73,7 +95,8 @@
 <%--        </form>--%>
 
     </tr>
-
+    </cr:forEach>
+>>>>>>> origin
     </tbody>
 </table>
 

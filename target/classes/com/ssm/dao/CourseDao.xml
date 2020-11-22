@@ -7,16 +7,16 @@
     <resultMap id="courseBySchool" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
         <result property="cName" column="cName"></result>
-        <result property="mId" column="mid"></result>
         <result property="cInfo" column="cinfo"></result>
+        <result property="mId" column="mid"></result>
         <result property="mName" column="mname"></result>
         <result property="sName" column="sname"></result>
     </resultMap>
     <resultMap id="courseByCategory" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
         <result property="cName" column="cName"></result>
-        <result property="tId" column="tid"></result>
         <result property="cInfo" column="cinfo"></result>
+        <result property="tId" column="tid"></result>
         <result property="tName" column="tname"></result>
         <result property="sName" column="sname"></result>
     </resultMap>
@@ -42,7 +42,8 @@
         select course.*,category.*,majors.sname from course,majors,category
         where category.cid=course.cid and course.mid = majors.mid
     </select>
-     <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
+
+    <select id="findByCategory1" parameterType="java.lang.String" resultMap="courseByCategory">
             select course.*,category.*,majors.sname from category,course,majors
             where category.tname like concat('%',#{tn},'%') and category.cid=course.cid and course.mid = majors.mid
         </select>

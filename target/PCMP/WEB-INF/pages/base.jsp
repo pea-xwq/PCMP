@@ -5,7 +5,7 @@
   Time: 21:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
@@ -61,7 +61,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="#">你好</a></li>
-                <li><a href="/PCMP_war_exploded/class/test">登录</a></li>
+                <li><a href="/PCMP_war_exploded/user/registerAndLogin">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

@@ -2,6 +2,9 @@ package com.ssm.domain;
 
 import java.io.Serializable;
 
+/**
+ * 课程
+ */
 public class Course implements Serializable {
     private Integer cId;
     private String cName;
@@ -13,6 +16,22 @@ public class Course implements Serializable {
     private String tName;
     private String cInfo;
     private Integer attend;
+
+    public Integer getcId() {
+        return cId;
+    }
+
+    public void setcId(Integer cId) {
+        this.cId = cId;
+    }
+
+    public String getcName() {
+        return cName;
+    }
+
+    public void setcName(String cName) {
+        this.cName = cName;
+    }
 
     public Integer getsId() {
         return sId;
@@ -28,6 +47,14 @@ public class Course implements Serializable {
 
     public void setsName(String sName) {
         this.sName = sName;
+    }
+
+    public Integer getmId() {
+        return mId;
+    }
+
+    public void setmId(Integer mId) {
+        this.mId = mId;
     }
 
     public String getmName() {
@@ -54,44 +81,20 @@ public class Course implements Serializable {
         this.tName = tName;
     }
 
-    public Integer getAttend() {
-        return attend;
-    }
-
-    public void setAttend(Integer attend) {
-        this.attend = attend;
-    }
-
-    public Integer getcId() {
-        return cId;
-    }
-
-    public void setcId(Integer cId) {
-        this.cId = cId;
-    }
-
-    public Integer getmId() {
-        return mId;
-    }
-
-    public void setmId(Integer mId) {
-        this.mId = mId;
-    }
-
-    public String getcName() {
-        return cName;
-    }
-
-    public void setcName(String cName) {
-        this.cName = cName;
-    }
-
     public String getcInfo() {
         return cInfo;
     }
 
     public void setcInfo(String cInfo) {
         this.cInfo = cInfo;
+    }
+
+    public Integer getAttend() {
+        return attend;
+    }
+
+    public void setAttend(Integer attend) {
+        this.attend = attend;
     }
 
     @Override
