@@ -22,7 +22,7 @@
 <body>
 <br><br><br><br><br>
 <h3 class="page-title">修改手机号</h3><br>
-<form action="/register/userCenter" method="post">
+<form action="/registerController/userCenter" method="post">
     <div class="form-container">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="请输入新的手机号" name="telephone">

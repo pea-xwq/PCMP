@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-           
             <a class="navbar-brand" href="#">
                 <img class="logo" src="image/pika.jpg" alt="...">
             </a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,19 +52,20 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="/class/catQuery">按专业大类查询</a></li>
                                            <li role="separator" class="divider"></li>
-                                           <li><a href="/class/courseQuery">按课程名称查询</a></li>
+
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
+            <form class="navbar-form navbar-left" action="${pageContext.request.contextPath}/class/courseQueryResult" method="get">
                 <div class="form-group">
                     <input name="q" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
+
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="/class/user">你好</a></li>
-                <li><a href="/register/login">登录</a></li>
+                <li><a href="/registerController/registerAndLogin">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,6 +21,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<c:url value="/css/base.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/background.css"/>">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -39,8 +43,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/PCMP_war_exploded/class/home">首页 <span class="sr-only">(current)</span></a></li>
-                <li><a href="/PCMP_war_exploded/class/recommend">课程</a></li>
+                <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="/class/recommend">课程</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>
@@ -49,21 +53,34 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="/class/catQuery">按专业大类查询</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/class/courseQuery">按课程名称查询</a></li>
+
                     </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-left" action="/class/courseQueryResult" method="get">
                 <div class="form-group">
-                    <input name="q" type="text" class="form-control" placeholder="请输入关键字">
+                    <input name="className" type="text" class="form-control" placeholder="请输入关键字">
                 </div>
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
-            <ul class="nav navbar-nav navbar-right" id="show">
-                <li><a href="#">你好</a></li>
-                <li><a href="/PCMP_war_exploded/user/registerAndLogin">登录</a></li>
-                <li></li>
-            </ul>
+            <cr:choose>
+                <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+                    <ul class="nav navbar-nav navbar-right" id="show">
+                        <li><a href="#">你好</a></li>
+                        <li><a href="/registerController/registerAndLogin">登录</a></li>
+                        <li></li>
+                    </ul>
+                </cr:when>
+                <cr:otherwise>
+                    <ul class="nav navbar-nav navbar-right" id="show">
+                        <li><a href="/registerController/userCenter">${sessionScope.USER_SESSION.userName}</a></li>
+                        <li><a href="/registerController/logout">退出登录</a></li>
+                        <li></li>
+                    </ul>
+                </cr:otherwise>
+
+            </cr:choose>
+
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

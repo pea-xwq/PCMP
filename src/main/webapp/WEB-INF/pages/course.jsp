@@ -12,6 +12,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="<c:url value="/css/course.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/background.css"/>">
 <%--    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">--%>
 
 </head>

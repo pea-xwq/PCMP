@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="base.jsp"%>
-<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <html>
 <head>
@@ -28,28 +28,47 @@
     </tr>
     </thead>
     <tbody>
-<cr:choose>
-    <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+<cc:choose>
+    <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
         <div class="alert alert-warning alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
             </button>
             <strong>Warning!</strong> 请先登录再参与课程
         </div>
-    </cr:when>
+    </cc:when>
 
-</cr:choose>
+</cc:choose>
+
+<cc:forEach var="course" items="${courses}">
     <tr>
-        <th scope="row"></th>
-        <td></td>
+
+        <td name="cname">${course.cName}</td>
+        <td name="school">${course.sName}</td>
         <td><a href="#">课程详情</a></td>
         <td><a href="#">评论</a></td>
-        <form action="" method="post">
-            <td>
-                <input type="button" class="btn btn-primary btn-block" value="参与课程" onclick=alert('已加入参与课程，请到个人中心查看！')>
-            </td>
-        </form>
-
+        <cc:choose>
+            <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" disabled="disabled" title="参与课程请先登录！">
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cc:when>
+            <cc:otherwise>
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" id="btn" onclick=alert('已经取消课程')>
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cc:otherwise>
+        </cc:choose>
     </tr>
+</cc:forEach>
+
     </tbody>
 
 </table>

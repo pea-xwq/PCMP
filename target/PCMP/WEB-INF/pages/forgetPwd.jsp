@@ -26,20 +26,23 @@
         <div class="modal-body" id = "model-body">
             <div class="form-group">
 
-                <input type="text" class="form-control"placeholder="用户名" autocomplete="off">
+                <input type="text" class="form-control"placeholder="手机号" value="前11位为有效位" autocomplete="off">
             </div>
             <div class="form-group">
 
                 <input type="password" class="form-control" placeholder="密码" autocomplete="off">
             </div>
+            <div class="form-group">
+
+                <input type="password" class="form-control" placeholder="确认密码" autocomplete="off">
+            </div>
+
         </div>
         <div class="modal-footer">
             <div class="form-group">
-                <button type="button" class="btn btn-primary form-control">登录</button>
+                <button type="button" class="btn btn-primary form-control"><a href="/registerController/registerAndLogin">提交</a></button>
             </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-default form-control">注册</button>
-            </div>
+
 
         </div>
     </div><!-- /.modal-content -->
