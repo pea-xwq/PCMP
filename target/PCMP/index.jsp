@@ -52,7 +52,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="/class/catQuery">按专业大类查询</a></li>
                                            <li role="separator" class="divider"></li>
-                                           <li><a href="/class/courseQuery">按课程名称查询</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -62,9 +62,10 @@
                 </div>
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
+
             <ul class="nav navbar-nav navbar-right" id="show">
                 <li><a href="/class/user">你好</a></li>
-                <li><a href="/register/login">登录</a></li>
+                <li><a href="/registerController/registerAndLogin">登录</a></li>
                 <li></li>
             </ul>
             <!-- <button id="hide"  style="margin-right:10px;margin-top:10px">退出登录</button>-->

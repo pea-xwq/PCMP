@@ -22,7 +22,7 @@
 <body>
 <br><br><br><br><br>
 <h3 class="page-title">修改用户名</h3><br>
-<form action="/register/userCenter" method="post">
+<form action="/user/updateName" method="post">
     <div class="form-container">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="请输入新的用户名" name="username">

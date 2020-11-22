@@ -22,7 +22,7 @@
 <body>
 <br><br><br><br><br>
 <h3 class="page-title">修改密码</h3><br>
-<form action="/register/userCenter" method="post">
+<form action="/registerController/userCenter" method="post">
     <div class="form-container">
         <div class="form-group">
             <input type="password" class="form-control ipt" placeholder="新密码" name="password">

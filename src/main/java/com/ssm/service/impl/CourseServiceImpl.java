@@ -27,7 +27,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findBySchool1(String arg1, String arg0) {
-        return null;
+        List<Course> courses = courseDao.findBySchool1(arg1,arg0);
+        return courses;
     }
 
     @Override
@@ -38,14 +39,14 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findByCategory1(String sn) {
-        return null;
+        List<Course> courses = courseDao.findByCategory1(sn);
+        return courses;
     }
 
     @Override
     public List<Course> findByName(String s) {
-//        List<Course> courses = courseDao.findByName();
-//        return courses;
+      List<Course> courses = courseDao.findByName(s);
+      return courses;
 
-        return null;
     }
 }

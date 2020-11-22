@@ -8,7 +8,6 @@
 <%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ include file="base.jsp"%>
-<%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -21,11 +20,11 @@
 <form class="form-inline" action="/class/schoolQueryResult" method="get">
     <div class="form-group">
         <label for="exampleInputName2">学校</label>
-        <input name="s" type="text" class="form-control" id="exampleInputName2" placeholder="请输入学校名称">
+        <input name="schoolName" type="text" class="form-control" id="exampleInputName2" placeholder="请输入学校名称">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail2">专业</label>
-        <input name="m" type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入专业名称">
+        <input name="majorName" type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入专业名称">
     </div>
     <button type="submit" class="btn btn-default">查找</button>
 </form>
@@ -44,59 +43,45 @@
     </thead>
     <tbody>
 
-    <cr:choose>
-        <cr:when test="${sessionScope.USER_SESSION.telephone==null}">
+    <cc:choose>
+        <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <strong>Warning!</strong> 请先登录再参与课程
             </div>
-        </cr:when>
-
-<<<<<<< HEAD
+        </cc:when>
+    </cc:choose>
     <cc:forEach var="course" items="${courses}">
     <tr>
         <th scope="row" name="cname">${course.cName}</th>
         <td name="school">${course.sName}</td>
         <td name="majors">${course.mName}</td>
-=======
-    </cr:choose>
-
-<cr:forEach items="${courses}" var="node">
-    <tr>
-
-        <th scope="row" name="cname"> <cr:out value="${node.cName}"></cr:out>
-        </th>
-        <td name="school"><cr:out value="${node.cInfo}"></cr:out></td>
-        <td name="majors"></td>
->>>>>>> origin
         <td name="cinfo"><a href="#"> 课程详情 </a></td>
         <td><a href="#">评论</a></td>
-
-        <form action="#" method="post">
-            <td>
-                <button class="btn btn-primary btn-block" id="btn" onclick=alert('已加入参与课程，请到个人中心查看！')>
-                    参与课程
-                </button>
-            </td>
-        </form>
-<<<<<<< HEAD
+        <cc:choose>
+            <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" disabled="disabled" title="参与课程请先登录！">
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cc:when>
+            <cc:otherwise>
+                <form action="#" method="post">
+                    <td>
+                        <button class="btn btn-primary btn-block" id="btn" onclick=alert('已经取消课程')>
+                            参与课程
+                        </button>
+                    </td>
+                </form>
+            </cc:otherwise>
+        </cc:choose>
     </tr>
     </cc:forEach>
-=======
 
-
-<%--        <form action="{{ url_for('attend', acid = course.cid) }}" method="post">--%>
-<%--            <td>--%>
-<%--                <button class="btn btn-primary btn-block" disabled="disabled" title="参与课程请先登录！">--%>
-<%--                    参与课程--%>
-<%--                </button>--%>
-<%--            </td>--%>
-<%--        </form>--%>
-
-    </tr>
-    </cr:forEach>
->>>>>>> origin
     </tbody>
 </table>
 

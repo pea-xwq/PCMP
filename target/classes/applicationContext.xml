@@ -19,7 +19,6 @@
             Controller用SPringMVC去处理，所以不扫描-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
     <!--Spring整合MyBatis框架-->
     <!--配置连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -28,7 +27,6 @@
         <property name="user" value="xwq812991655"/>
         <property name="password" value="Xwq993961218"/>
     </bean>
-
     <!--配置SqlSessionFactory工厂-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--依赖DataSource-->
@@ -38,7 +36,6 @@
         <!--注入别名配置，包扫描方式-->
         <property name="typeAliasesPackage" value="com.ssm.domain"/>
     </bean>
-
     <!--官方推荐：动态代理方式的配置-->
     <!--先配置MapperFactoryBean-->
     <!--<bean id="baseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
@@ -48,14 +45,10 @@
         <property name="mapperInterface" value="com.ssm.dao.CourseDao"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
-
     <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.ssm.dao.UserDao"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
-
-
-
     <!--配置一个接口
     <bean id="courseDao" parent="baseMapper">
         <property name="mapperInterface" value="com.ssm.dao.CourseDao"/>
@@ -76,7 +69,6 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
     <!--配置事务通知-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -84,10 +76,8 @@
             <tx:method name="*" isolation="DEFAULT"/>
         </tx:attributes>
     </tx:advice>
-
 <!--    &lt;!&ndash;配置AOP增强&ndash;&gt;
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ssm.service.impl.*serviceImpl.*(..))"/>
     </aop:config>-->
-
 </beans>

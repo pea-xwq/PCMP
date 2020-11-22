@@ -1,6 +1,8 @@
 package com.ssm.controller;
 
 import com.ssm.domain.User;
+import com.ssm.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,47 +14,85 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
-@RequestMapping("/register")
+@RequestMapping("/registerController")
 public class RegisterController {
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String toLogin(){
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping({"/registerAndLogin"})
+    public String registerAndLogin() {
         return "login";
     }
-    @RequestMapping(value = "/registerTest")
-    public String registerTest(String userName, String password, String telephone,HttpServletRequest request){
-        System.out.println("userName:"+userName);
-        System.out.println("password:"+password);
-        System.out.println("telephone:"+telephone);
-        User user=new User();
-        user.setUserName(userName);
-        user.setTelephone(telephone);
-        user.setPassword(password);
+
+    @RequestMapping({"/login"})
+    public String login(@RequestParam("telephone") String telephone, @RequestParam("password") String password, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = null;
+        response.setContentType("text/html;charset=UTF-8");
+        out = response.getWriter();
+        List<User> users = this.userService.findAllUsers();
+        Iterator var8 = users.iterator();
+        User user;
+        do {
+            if (!var8.hasNext()) {
+                out = response.getWriter();
+                out.println("<script>");
+                out.println("alert('账号或密码有误')");
+                out.println("history.back();");
+                out.println("</script>");
+                out.close();
+                return null;
+            }
+            user = (User)var8.next();
+        } while(!user.getTelephone().equals(telephone) || !user.getPassword().equals(password));
         request.getSession().setAttribute("USER_SESSION",user);
-        //些处横板从数据库中获取对用户名和密码后进行判断
+        model.addAttribute("telephone", telephone);
+        out = response.getWriter();
+        out.println("<script>");
+        out.println("alert('登陆成功')");
+        out.println("</script>");
         return "home";
     }
-    @RequestMapping(value = "/loginTest",method = RequestMethod.POST)
 
-    public String loginTest(String loginPassword, String loginTelephone, Model model, HttpServletRequest request){
-        //些处横板从数据库中获取对用户名和密码后进行判断
-        if(loginTelephone!=null&&loginPassword!=null){
-            User user=new User();
-            user.setTelephone(loginTelephone);
-            user.setPassword(loginPassword);
-            request.getSession().setAttribute("USER_SESSION",user);
-            //主页面的跳转方法
-            return "home";
-        }
-        model.addAttribute("msg","用户名或密码错误，请重新登录！");
-        return "login";
+    @RequestMapping({"/register"})
+    public String register(@RequestParam("username") String username, @RequestParam("telephone") String telephone, @RequestParam("password") String password, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = null;
+        response.setContentType("text/html;charset=UTF-8");
+        out = response.getWriter();
+        User user1 = new User();
+        user1.setPassword(password);
+        user1.setTelephone(telephone);
+        user1.setUserName(username);
+        List<User> users = this.userService.findAllUsers();
+        Iterator var10 = users.iterator();
+
+        User user;
+        do {
+            if (!var10.hasNext()) {
+                this.userService.saveUser(user1);
+                request.getSession().setAttribute("USER_SESSION",user1);
+                return "home";
+            }
+            user = (User)var10.next();
+        } while(!user.getTelephone().equals(telephone));
+        out = response.getWriter();
+        out.println("<script>");
+        out.println("alert('手机号已被注册！')");
+        out.println("history.back();");
+        out.println("</script>");
+        out.close();
+        return null;
     }
-
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String toLogout(){
         return "login";
     }
+
     @RequestMapping(value = "/userCenter")
     public String userCenter(){
 
@@ -63,4 +103,8 @@ public class RegisterController {
 
         return "forgetPwd";
     }
+
+
+
+
 }

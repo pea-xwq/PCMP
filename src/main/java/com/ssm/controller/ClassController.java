@@ -80,21 +80,38 @@ public class ClassController {
 
 
     @RequestMapping("/courseQueryResult")
-    public String courseQueryResult(){
+    public String courseQueryResult(String className,Model model){
         //调用service的方法
+        List<Course> courses = courseService.findByName(className);
+        model.addAttribute("courses",courses);
+        for(Course course:courses){
+            System.out.println(course);
+        }
         return "courseQuery";
     }
 
     @RequestMapping("/schoolQueryResult")
-    public String SchoolQueryResult(Model model){
+    public String SchoolQueryResult(String schoolName,String majorName,Model model){
 
-        List<Course> list=new ArrayList<Course>();
-        Course course1=new Course();
-        course1.setcName("java");
-        course1.setcInfo("大连理工");
-        list.add(course1);
-        model.addAttribute("courses", list);
+        //调用service的方法
+        List<Course> courses = courseService.findBySchool1(schoolName,majorName);
+        model.addAttribute("courses",courses);
+        for(Course course:courses){
+            System.out.println(course);
+        }
         return "schoolQuery";
+
+    }
+    @RequestMapping("/CatQueryResult")
+    public String CatQueryResult(String majorName,Model model){
+
+        //调用service的方法
+        List<Course> courses = courseService.findByCategory1(majorName);
+        model.addAttribute("courses",courses);
+        for(Course course:courses){
+            System.out.println(course);
+        }
+        return "catQuery";
 
     }
 }
