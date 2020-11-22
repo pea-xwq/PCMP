@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -82,6 +83,7 @@
                     </a>
                 </p>
                 <p>使用您的手机号进行注册</p>
+<<<<<<< HEAD
                 <form  method="post" action="${pageContext.request.contextPath}/user/register">
                     <div class="form-group">
                         <input name="username" class="form-control" type="text" placeholder="名称" required="required" />
@@ -93,6 +95,19 @@
                         <input name="password" class="form-control" type="password" placeholder="密码" required="required" />
                     </div>
                     <button type="submit" class="btn btn-lg">注册</button>
+=======
+                <form action="/register/registerTest" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="名称" name="userName" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="手机号码" name="telephone" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="密码" name="password" required="required" />
+                    </div>
+                    <button class="btn btn-lg" type="submit">注册</button>
+>>>>>>> origin
                 </form>
             </div>
             <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
@@ -116,6 +131,7 @@
                     </a>
                 </p>
                 <p>手机号码登录</p>
+<<<<<<< HEAD
                 <form method="post" action="${pageContext.request.contextPath}/user/login">
                     <div class="form-group">
                         <input name="telephone" class="form-control" type="text" placeholder="手机号码" required="required" />
@@ -125,6 +141,18 @@
                     </div>
                     <p><a href="#">忘记密码?</a></p>
                     <button id="login_btn" class="btn btn-lg" type="submit" value="登录">登录</button>
+=======
+                <form action="/register/loginTest" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="手机号码" value="前11位为有效位" required="required" name="loginTelephone"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="密码" name="loginPassword" required="required" />
+                    </div>
+                    <p><a href="#">忘记密码?</a></p>
+                    <button class="btn btn-lg" type="submit">登录</button>
+
+>>>>>>> origin
                 </form>
             </div>
             <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>

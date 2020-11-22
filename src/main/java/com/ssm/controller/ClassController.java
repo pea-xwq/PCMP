@@ -1,13 +1,21 @@
 package com.ssm.controller;
 
 import com.ssm.domain.Course;
+
 import com.ssm.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,15 +50,21 @@ public class ClassController {
     }
 
     @RequestMapping("/schoolQuery")
-    public String schoolQuery(Model model){
+    public String schoolQuery(Model model) {
         //调用service的方法
-
         List<Course> courses = courseService.findBySchool();
-        model.addAttribute("courses",courses);
-        for(Course course:courses){
+        model.addAttribute("courses", courses);
+        for (Course course : courses) {
             System.out.println(course);
         }
         return "schoolQuery";
+    }
+
+    @RequestMapping("/courseQuery")
+    public  String  courseQuery(HttpServletRequest request)
+    {
+        request.getSession().getAttribute("USER_SESSION");
+        return ("courseQuery");
     }
 
     @RequestMapping("/catQuery")
@@ -64,15 +78,23 @@ public class ClassController {
         return "catQuery";
     }
 
-    @RequestMapping("/courseQuery")
-    public String courseQuery(){
-        //调用service的方法
-        return "courseQuery";
-    }
 
     @RequestMapping("/courseQueryResult")
     public String courseQueryResult(){
         //调用service的方法
         return "courseQuery";
+    }
+
+    @RequestMapping("/schoolQueryResult")
+    public String SchoolQueryResult(Model model){
+
+        List<Course> list=new ArrayList<Course>();
+        Course course1=new Course();
+        course1.setcName("java");
+        course1.setcInfo("大连理工");
+        list.add(course1);
+        model.addAttribute("courses", list);
+        return "schoolQuery";
+
     }
 }
