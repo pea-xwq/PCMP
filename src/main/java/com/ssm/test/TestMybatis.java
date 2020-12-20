@@ -1,7 +1,9 @@
 package com.ssm.test;
 
+import com.ssm.dao.CommentDao;
 import com.ssm.dao.CourseDao;
 import com.ssm.dao.UserDao;
+import com.ssm.domain.Comment;
 import com.ssm.domain.Course;
 import com.ssm.domain.User;
 import com.ssm.service.CourseService;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -34,9 +37,11 @@ public class TestMybatis {
         CourseDao dao = session.getMapper(CourseDao.class);
         //查询所有数据
         List<Course> cs = dao.findBySchool();
-//        List<Course> cs = dao.findByCategory();
-        //List<Course> cs = dao.findByName("生物");
-//        List<Course> cs = dao.findByCategory1("生命");
+        List<Course> cs1 = dao.findByCategory();
+        List<Course> cs2 = dao.findByName("生物");
+        List<Course> cs3 = dao.findBySchool1("上海");
+        for(Course c : cs3)
+            System.out.println(c);
         //关闭资源
         session.close();
         in.close();
@@ -52,16 +57,19 @@ public class TestMybatis {
         //创建Sqlsession对象
         SqlSession session = factory.openSession();
         //获取代理对象
-        UserDao dao = session.getMapper(UserDao.class);
+        CommentDao dao = session.getMapper(CommentDao.class);
         //User u = dao.findById(2);
         //User u = dao.findByTelephone("15172338589");
-        User u = new User();
-        u.setUserName("aa");
-        u.setTelephone("1111");
-        u.setPassword("2222");
-        dao.saveUser(u);
+//        Comment u = new Comment();
+//        u.setContent("aa");
+//        u.setUid(1);
+//        Date date =new Date();
+//        u.setTime(date);
+//        dao.saveComment(u);
+        List<Comment> u = dao.findAllComments();
         session.commit();
-        System.out.println(u);
+        for(Comment uu : u)
+            System.out.println(uu);
         //关闭资源
         session.close();
         in.close();

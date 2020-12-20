@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface CommentDao {
     public List<Comment> findAllComments();
-    public Comment savaComments();
+    public void saveComment(Comment c);
+
 }
