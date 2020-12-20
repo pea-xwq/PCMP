@@ -27,7 +27,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findBySchool1(String arg1, String arg0) {
-        List<Course> courses = courseDao.findBySchool1(arg1,arg0);
+        List<Course> courses = courseDao.findBySchool1(arg1);
         return courses;
     }
 
