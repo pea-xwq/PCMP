@@ -44,6 +44,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
                 <li><a href="/class/recommend">课程</a></li>
+                <li><a href="/class/comment">树洞</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>
@@ -74,7 +75,7 @@
 </nav>
 <div class="main">
 
-    <a href="/register/login"><img src="image/Home.jpg" alt="..." ><br></a>
+    <a href="/registerController/registerAndLogin"><img src="image/Home.jpg" alt="..." ><br></a>
 
 </div>
 <script src="./try.js"></script>

@@ -9,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -42,6 +44,11 @@ public class ClassController {
     public String recommend(){
         //调用service的方法
         return "course";
+    }
+    @RequestMapping("/comment")
+    public String comment(){
+        //调用service的方法
+        return "comment";
     }
     @RequestMapping("/home")
     public String home(){
@@ -112,6 +119,14 @@ public class ClassController {
             System.out.println(course);
         }
         return "catQuery";
+
+    }
+    @RequestMapping("attend")
+    public String attend(int cid,@RequestHeader(value = "referer", required = false) final String referer){
+        System.out.println(cid);
+        //调用service的方法
+        return "redirect:"+referer;
+
 
     }
 }

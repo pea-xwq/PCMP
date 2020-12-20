@@ -21,7 +21,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<c:url value="/css/base.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/background.css"/>">
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -45,6 +45,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
                 <li><a href="/class/recommend">课程</a></li>
+
+                <li><a href="/class/comment">树洞</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">检索方式 <span class="caret"></span></a>

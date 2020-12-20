@@ -1,0 +1,50 @@
+.form-container{
+    width: 660px;
+    margin: 0 auto;
+
+}
+
+.page-title{
+    text-align: center;
+}
+
+.comment-group{
+    width: 660px;
+    height: 100%;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+
+
+}
+.comment-container{
+    background: #F5F5F5;
+    width: 660px;
+    text-align: center;
+}
+
+.comment-info{
+    text-align: right;
+    margin-right: 10px;
+}
+.comment-user_name{
+    color: #259;
+}
+.form-content{
+    text-align: center;
+}
+.form-button{
+    text-align: right;
+}
+.main{
+    /*background: #ffffff;*/
+    margin-right: 10px;
+}
+.main img{
+    border:0;
+    margin:0;
+    padding:0;
+    width: 200px;
+    height: 100px;
+    float: right;
+}

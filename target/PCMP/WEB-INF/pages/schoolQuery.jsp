@@ -70,9 +70,9 @@
                 </form>
             </cc:when>
             <cc:otherwise>
-                <form action="#" method="post">
+                <form action="/class/attend?cid=${course.cId}" method="post">
                     <td>
-                        <button class="btn btn-primary btn-block" id="btn" onclick=alert('已经取消课程')>
+                        <button class="btn btn-primary btn-block" id="btn" onclick=alert('参与课程成功，请到个人中心查看')>
                             参与课程
                         </button>
                     </td>
