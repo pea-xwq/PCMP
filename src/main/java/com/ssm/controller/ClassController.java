@@ -1,7 +1,10 @@
 package com.ssm.controller;
 
+import com.ssm.domain.Comment;
 import com.ssm.domain.Course;
 
+import com.ssm.domain.User;
+import com.ssm.service.CommentService;
 import com.ssm.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -11,16 +14,19 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -32,7 +38,8 @@ public class ClassController {
 
     @Autowired
     private CourseService courseService;
-
+    @Autowired
+    private CommentService commentService;
     @RequestMapping("/test")
     public String test(){
         System.out.println("这是一个测试方法");
@@ -46,9 +53,32 @@ public class ClassController {
         return "course";
     }
     @RequestMapping("/comment")
-    public String comment(){
+    public String comment(Model model){
         //调用service的方法
+        List<Comment> comments =commentService.findAllComments();
+        model.addAttribute("comments", comments);
         return "comment";
+
+    }
+    @RequestMapping("/commentCommit")
+    public String commentCommit(@RequestParam("content") String content, Model model, HttpServletRequest request, HttpServletResponse response,@RequestHeader(value = "referer", required = false) final String referer) throws IOException {
+        //调用service的方法
+        HttpSession session=request.getSession();
+        System.out.println(session);
+        User user= (User) session.getAttribute("USER_SESSION");
+        if(content.length()!=0){
+            commentService.saveComment(user.getId(),content);
+        }else {
+            PrintWriter out = null;
+            response.setContentType("text/html;charset=UTF-8");
+            out = response.getWriter();
+            out.println("<script>");
+            out.println("alert('评论不能为空！')");
+            out.println("history.back();");
+            out.println("</script>");
+            out.close();
+        }
+        return "redirect:"+referer;
     }
     @RequestMapping("/home")
     public String home(){

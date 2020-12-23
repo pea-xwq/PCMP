@@ -9,20 +9,23 @@
 }
 
 .comment-group{
-    width: 660px;
-    height: 100%;
+    width: 650px;
+    height: 90%;
     text-align: left;
     margin-left: 10px;
     margin-right: 10px;
-
 
 }
 .comment-container{
     background: #F5F5F5;
     width: 660px;
+    height: 200px;
     text-align: center;
 }
-
+.hr_t{
+    height:6px;
+    background-color:#ffffff;
+}
 .comment-info{
     text-align: right;
     margin-right: 10px;
@@ -35,16 +38,4 @@
 }
 .form-button{
     text-align: right;
-}
-.main{
-    /*background: #ffffff;*/
-    margin-right: 10px;
-}
-.main img{
-    border:0;
-    margin:0;
-    padding:0;
-    width: 200px;
-    height: 100px;
-    float: right;
 }

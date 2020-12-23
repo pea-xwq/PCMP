@@ -22,18 +22,21 @@
 <ul>
 
     <a href="#end"><img src="../../image/comment.png" alt="..." align="right" width="500px" height="390px"><br></a>
-    <li>
+    <cc:forEach var="comment" items="${comments}">
+
         <div class="comment-container">
             <div class="comment-group">
-                <p class="comment-user_name">{{ comment.user_name }}:</p>
-                <p class="comment-content">{{ comment.content }}</p>
+                <p class="comment-user_name">${comment.uname}:</p>
+                <p class="comment-content">${comment.content}</p>
             </div>
             <div class="comment-info">
-                <span class="comment-datatime">{{ comment.datetime }}
+                <span class="comment-datatime">${comment.time}
                 </span>
             </div>
+
         </div>
-    </li>
+        <hr style="background-color: white;height: 4px" >
+    </cc:forEach>
 
     <br>
 
@@ -48,7 +51,7 @@
 
     </span>
 
-<form action="" method="post">
+<form action="/class/commentCommit" method="post">
     <div class="form-container">
         <div class="form-content">
             <textarea name="content" rows="5" cols="88" placeholder="请输入您的评论" class="" form-control></textarea>

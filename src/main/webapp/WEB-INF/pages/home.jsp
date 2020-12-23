@@ -120,7 +120,6 @@
         <th>学校名称</th>
         <th>专业名称</th>
         <th>课程详情</th>
-        <th>查看评论</th>
         <th>参与人数</th>
     </tr>
     </thead>
@@ -131,7 +130,6 @@
         <td></td>
         <td></td>
         <td><a href="#">课程详情 </a></td>
-        <td><a href="#">评论</a></td>
         <td></td>
     </tr>
 

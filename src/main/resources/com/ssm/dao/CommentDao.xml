@@ -12,5 +12,5 @@
      <insert id="saveComment" parameterType="com.ssm.domain.Comment">
       insert into comment(content,uid,time,uname)
              values (#{content},#{uid},#{time},#{uname})
-             </insert>
+      </insert>
 </mapper>
