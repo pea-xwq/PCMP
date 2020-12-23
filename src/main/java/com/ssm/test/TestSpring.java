@@ -1,5 +1,6 @@
 package com.ssm.test;
 
+import com.ssm.service.AttendService;
 import com.ssm.service.CourseService;
 import com.ssm.service.UserService;
 import com.ssm.service.impl.UserServiceImpl;
@@ -13,11 +14,13 @@ public class TestSpring {
         //加载配置文件
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         //获取对象
-        //CourseService cs = (CourseService)ac.getBean("courseService");
+        CourseService cs = (CourseService)ac.getBean("courseService");
         //调用方法
-        //cs.findBySchool();
+        cs.findByName("遗传学与进化");
 
-        UserService userService = (UserService)ac.getBean("userService");
-        userService.changePhone("888",10);
+//        UserService userService = (UserService)ac.getBean("userService");
+//        userService.changePhone("3414212",10);
+//        AttendService attendService = (AttendService)ac.getBean("attendService");
+//        attendService.showAttend(8);
     }
 }
