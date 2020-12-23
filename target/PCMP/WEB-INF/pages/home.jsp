@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="base.jsp"%>
 <html>
 <head>
@@ -124,14 +125,15 @@
     </tr>
     </thead>
     <tbody>
-
+<cc:forEach var="course" items="${courses}">
     <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td><a href="#">课程详情 </a></td>
-        <td></td>
+    <th scope="row" name="cname">${course.cName}</th>
+    <td name="school">${course.sName}</td>
+    <td name="majors">${course.mName}</td>
+    <td name="cinfo"><a href="${course.cInfo}"> 课程详情 </a></td>
+    <td name="attend">${course.attend}</td>
     </tr>
+</cc:forEach>
 
     </tbody>
 </table>

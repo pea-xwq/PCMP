@@ -5,15 +5,16 @@
 <mapper namespace="com.ssm.dao.CourseDao">
     <resultMap id="courseBySchool" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
-        <result property="cName" column="cName"></result>
+        <result property="cName" column="cname"></result>
         <result property="cInfo" column="cinfo"></result>
         <result property="mId" column="mid"></result>
         <result property="mName" column="mname"></result>
         <result property="sName" column="sname"></result>
+        <result property="attend" column="attend"></result>
     </resultMap>
     <resultMap id="courseByCategory" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
-        <result property="cName" column="cName"></result>
+        <result property="cName" column="cname"></result>
         <result property="cInfo" column="cinfo"></result>
         <result property="tId" column="tid"></result>
         <result property="tName" column="tname"></result>
@@ -21,10 +22,18 @@
     </resultMap>
     <resultMap id="courseByName" type="com.ssm.domain.Course">
         <id property="cId" column="cid"></id>
-        <result property="cName" column="cName"></result>
+        <result property="cName" column="cname"></result>
         <result property="cInfo" column="cinfo"></result>
         <result property="sName" column="sname"></result>
     </resultMap>
+    <resultMap id="attendCourseByUid" type="com.ssm.domain.Course">
+        <id property="cId" column="cid"></id>
+        <result property="cName" column="cname"></result>
+        <result property="sName" column="sname"></result>
+        <result property="mName" column="mname"></result>
+        <result property="cInfo" column="cinfo"></result>
+    </resultMap>
+
 
     <select id="findBySchool" resultMap="courseBySchool">
         select course.*,majors.* from course,majors
@@ -51,5 +60,24 @@
     <select id="findByName" parameterType="java.lang.String" resultMap="courseByName">
         select course.*,majors.sname from course,majors
         where course.cname like concat('%',#{s},'%') and course.mid = majors.mid
+    </select>
+
+    <select id="findTop5" resultMap="courseBySchool">
+            select course.*,majors.* from course,majors
+            where course.mid = majors.mid
+            order by course.attend desc
+    </select>
+
+    <select id="findById" resultType="java.lang.Integer">
+        select course.attend from course where cid = #{cid}
+    </select>
+
+    <update id="updateCourseByAttend">
+        update course set attend = #{attend} where cid = #{cid}
+    </update>
+
+    <select id="showAttend" resultMap="attendCourseByUid">
+        select course.*,majors.* from course,majors,attend
+        where attend.uid = #{uid} and attend.cid = course.cid and course.mid = majors.mid
     </select>
 </mapper>
