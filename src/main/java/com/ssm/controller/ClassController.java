@@ -4,6 +4,7 @@ import com.ssm.domain.Comment;
 import com.ssm.domain.Course;
 
 import com.ssm.domain.User;
+import com.ssm.service.AttendService;
 import com.ssm.service.CommentService;
 import com.ssm.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,10 @@ public class ClassController {
 
     @Autowired
     private CourseService courseService;
+//    @Autowired
+//    private CommentService commentService;
     @Autowired
-    private CommentService commentService;
+    private AttendService attendService;
     @RequestMapping("/test")
     public String test(){
         System.out.println("这是一个测试方法");
@@ -81,8 +84,13 @@ public class ClassController {
 //        return "redirect:"+referer;
 //    }
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model){
         //调用service的方法
+        List<Course> courses = courseService.findTop5();
+        model.addAttribute("courses", courses);
+        for (Course course : courses) {
+            System.out.println(course);
+        }
         return "home";
     }
 
@@ -152,11 +160,23 @@ public class ClassController {
 
     }
     @RequestMapping("attend")
-    public String attend(int cid,@RequestHeader(value = "referer", required = false) final String referer){
+    public String attend(int cid,HttpServletRequest request,@RequestHeader(value = "referer", required = false) final String referer){
+        HttpSession session=request.getSession();
+        User user= (User) session.getAttribute("USER_SESSION");
+        attendService.toAttend(user.getId(),cid);
         System.out.println(cid);
         //调用service的方法
         return "redirect:"+referer;
 
 
+    }
+    @RequestMapping(value = "/cancelAttend")
+    public String userCenter(int cid,HttpServletRequest request,@RequestHeader(value = "referer", required = false) final String referer){
+        HttpSession session=request.getSession();
+        User user= (User) session.getAttribute("USER_SESSION");
+        attendService.cancelAttend(user.getId(),cid);
+        System.out.println(cid);
+        //调用service的方法
+        return "redirect:"+referer;
     }
 }

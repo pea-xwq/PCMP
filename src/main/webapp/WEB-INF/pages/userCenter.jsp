@@ -5,6 +5,7 @@
   Time: 12:08
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="cc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="base.jsp"%>
 <%@ taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -42,21 +43,23 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <cc:forEach var="course" items="${courses}">
+        <tr>
+            <th scope="row" name="cname">${course.cName}</th>
+            <td name="school">${course.sName}</td>
+            <td name="majors">${course.mName}</td>
+            <td name="cinfo"><a href="${course.cInfo}"> 课程详情 </a></td>
+            <form action="/class/cancelAttend?cid=${course.cId}" method="post">
+                <td>
 
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td><a href="#">课程详情 </a></td>
-        <form action="#" method="post">
-            <td>
+                    <button class="btn btn-primary btn-block" id="btn" onclick=alert('课程已经取消')>
+                        取消参与
+                    </button>
+                </td>
+            </form>
+        </tr>
+    </cc:forEach>
 
-                <button class="btn btn-primary btn-block" id="btn" onclick=alert('课程已经取消')>
-                    取消参与
-                </button>
-            </td>
-        </form>
-    </tr>
     </tbody>
 </table>
 </body>

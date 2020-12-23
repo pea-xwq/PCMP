@@ -1,6 +1,8 @@
 package com.ssm.controller;
 
+import com.ssm.domain.Course;
 import com.ssm.domain.User;
+import com.ssm.service.AttendService;
 import com.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,8 @@ import java.util.List;
 public class RegisterController {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private AttendService attendService;
     @RequestMapping({"/registerAndLogin"})
     public String registerAndLogin() {
         return "login";
@@ -99,10 +102,14 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/userCenter")
-    public String userCenter(){
-
+    public String userCenter(Model model,HttpServletRequest request){
+        HttpSession session=request.getSession();
+        User user= (User) session.getAttribute("USER_SESSION");
+        List<Course> courses = attendService.showAttend(user.getId());
+        model.addAttribute("courses", courses);
         return "userCenter";
     }
+
     @RequestMapping(value = "/forgetPwd")
     public String forgetPwd(){
 
