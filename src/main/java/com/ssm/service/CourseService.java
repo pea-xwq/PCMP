@@ -11,4 +11,5 @@ public interface CourseService {
     public List<Course> findByCategory();
     public List<Course> findByCategory1(String sn);
     public List<Course> findByName(String s);
+    public List<Course> findTop5();
 }

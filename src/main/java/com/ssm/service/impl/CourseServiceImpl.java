@@ -46,7 +46,19 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> findByName(String s) {
       List<Course> courses = courseDao.findByName(s);
+        for(Course c:courses){
+            System.out.println(c);
+        }
       return courses;
 
     }
+
+
+    @Override
+    public List<Course> findTop5(){
+        List<Course> courses = courseDao.findTop5();
+        List<Course> course5 = courses.subList(0,5);
+        return course5;
+    }
+
 }

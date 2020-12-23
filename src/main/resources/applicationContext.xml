@@ -53,6 +53,10 @@
         <property name="mapperInterface" value="com.ssm.dao.CommentDao"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    <bean id="attendDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+            <property name="mapperInterface" value="com.ssm.dao.AttendDao"/>
+            <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        </bean>
     <!--配置一个接口
     <bean id="courseDao" parent="baseMapper">
         <property name="mapperInterface" value="com.ssm.dao.CourseDao"/>

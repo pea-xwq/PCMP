@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.dao.AttendDao">
+
+    <insert id="toAttend">
+        insert into attend(uid,cid)
+            values(#{uid},#{cid})
+    </insert>
+
+    <delete id="cancelAttend">
+        delete from attend where uid = #{uid} and cid = #{cid}
+    </delete>
+
+
+    <select id="queryAttend" resultType="com.ssm.domain.Attend">
+        select * from attend where uid = #{uid} and cid = #{cid}
+    </select>
+</mapper>

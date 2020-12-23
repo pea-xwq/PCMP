@@ -41,11 +41,11 @@ public class TestMybatis {
         //获取代理对象
         CourseDao dao = session.getMapper(CourseDao.class);
         //查询所有数据
-        List<Course> cs = dao.findBySchool();
-        List<Course> cs1 = dao.findByCategory();
-        List<Course> cs2 = dao.findByName("生物");
-        List<Course> cs3 = dao.findBySchool1("上海");
-        for (Course c : cs3)
+        List<Course> cs = dao.findTop5();
+        //List<Course> cs1 = dao.findByCategory();
+        //List<Course> cs2 = dao.findByName("生物");
+        //List<Course> cs3 = dao.findBySchool1("上海");
+        for (Course c : cs)
             System.out.println(c);
         //关闭资源
         session.close();
