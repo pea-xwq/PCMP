@@ -18,9 +18,9 @@
 </head>
 <body>
 
-<a href="#"><img class="courseimg" src="<c:url value="/image/courseRecommend.jpg"/>" alt="..."  ></a>
-<a href="#"><img class="courseimg" src="<c:url value="/image/courseUpdate.png"/>" alt="..." ></a>
-<a href="#"><img class="courseimg" src="<c:url value="/image/coursePredict.jpg"/>" alt="..." ></a>
+<%--<a href="#"><img class="courseimg" src="<c:url value="/image/courseRecommend.jpg"/>" alt="..."  ></a>--%>
+<%--<a href="#"><img class="courseimg" src="<c:url value="/image/courseUpdate.png"/>" alt="..." ></a>--%>
+<%--<a href="#"><img class="courseimg" src="<c:url value="/image/coursePredict.jpg"/>" alt="..." ></a>--%>
 
 <br><br>
 <%--<span>--%>
