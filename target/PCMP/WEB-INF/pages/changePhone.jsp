@@ -22,14 +22,14 @@
 <body>
 <br><br><br><br><br>
 <h3 class="page-title">修改手机号</h3><br>
-<form action="/registerController/userCenter" method="post">
+<form action="/user/updatePhone" method="post">
     <div class="form-container">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="请输入新的手机号" name="telephone">
+            <input  name="telephone" type="text" class="form-control" placeholder="请输入新的手机号">
         </div>
 
         <div>
-            <button class="btn btn-primary btn-block">确认手机号</button>
+            <button class="btn btn-primary btn-block" type="submit">确认手机号</button>
         </div>
     </div>
 </form>

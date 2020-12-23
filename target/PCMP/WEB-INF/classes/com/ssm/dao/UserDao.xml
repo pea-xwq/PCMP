@@ -26,6 +26,10 @@
         values (#{telephone},#{email},#{userName},#{password})
     </insert>
 
+    <select id="ifChangePhone" parameterType="java.lang.String" resultType="com.ssm.domain.User">
+        select * from user where telephone = #{telephone}
+    </select>
+
     <update id="changeName">
         update user set username = #{username} where id = #{id}
     </update>

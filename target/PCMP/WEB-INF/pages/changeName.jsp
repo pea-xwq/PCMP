@@ -25,11 +25,10 @@
 <form action="/user/updateName" method="post">
     <div class="form-container">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="请输入新的用户名" name="username">
+            <input name="username" type="text" class="form-control" placeholder="请输入新的用户名" >
         </div>
-
         <div>
-            <button class="btn btn-primary btn-block">确认修改用户名</button>
+            <button class="btn btn-primary btn-block" type="submit" >确认修改用户名</button>
         </div>
     </div>
 </form>
