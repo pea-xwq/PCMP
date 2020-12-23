@@ -23,7 +23,6 @@
         <th>课程名称</th>
         <th>开课大学</th>
         <th>课程详情</th>
-        <th>查看评论</th>
         <th>参与课程</th>
     </tr>
     </thead>
@@ -44,8 +43,7 @@
 
         <td name="cname">${course.cName}</td>
         <td name="school">${course.sName}</td>
-        <td><a href="#">课程详情</a></td>
-        <td><a href="#">评论</a></td>
+        <td><a href="${course.cInfo}">课程详情</a></td>
         <cc:choose>
             <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
                 <form action="#" method="post">

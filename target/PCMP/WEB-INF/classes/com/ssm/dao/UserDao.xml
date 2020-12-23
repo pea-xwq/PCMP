@@ -26,4 +26,17 @@
         values (#{telephone},#{email},#{userName},#{password})
     </insert>
 
+    <update id="changeName">
+        update user set username = #{username} where id = #{id}
+    </update>
+
+    <update id="changePhone">
+        update user set telephone = #{telephone} where id = #{id}
+    </update>
+
+    <update id="changePwd">
+        update user set password = #{password} where id = #{id}
+    </update>
+
+
 </mapper>

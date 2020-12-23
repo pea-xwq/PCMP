@@ -37,7 +37,6 @@
         <th>学校名称</th>
         <th>专业名称</th>
         <th>课程详情</th>
-        <th>查看评论</th>
         <th>参与课程</th>
     </tr>
     </thead>
@@ -57,8 +56,7 @@
         <th scope="row" name="cname">${course.cName}</th>
         <td name="school">${course.sName}</td>
         <td name="majors">${course.mName}</td>
-        <td name="cinfo"><a href="#"> 课程详情 </a></td>
-        <td><a href="#">评论</a></td>
+        <td name="cinfo"><a href="${course.cInfo}"> 课程详情 </a></td>
         <cc:choose>
             <cc:when test="${sessionScope.USER_SESSION.telephone==null}">
                 <form action="#" method="post">

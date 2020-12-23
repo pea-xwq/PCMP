@@ -21,12 +21,13 @@
     <div class="modal-content">
         <div class="modal-header">
 
-            <h4 class="modal-title text-center" id="myModalLabel">登录</h4>
+            <h4 class="modal-title text-center" id="myModalLabel">忘记密码</h4>
         </div>
+        <form action="/registerController/registerAndLogin" method="post">
         <div class="modal-body" id = "model-body">
             <div class="form-group">
 
-                <input type="text" class="form-control"placeholder="手机号" value="前11位为有效位" autocomplete="off">
+                <input type="text" class="form-control"placeholder="手机号" value="" autocomplete="off">
             </div>
             <div class="form-group">
 
@@ -39,12 +40,12 @@
 
         </div>
         <div class="modal-footer">
-            <div class="form-group">
-                <button type="button" class="btn btn-primary form-control"><a href="/registerController/registerAndLogin">提交</a></button>
+            <div>
+                <button class="btn btn-primary btn-block">提交</button>
             </div>
-
-
         </div>
+
+        </form>
     </div><!-- /.modal-content -->
 </div><!-- /.modal -->
 

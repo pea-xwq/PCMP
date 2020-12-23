@@ -23,13 +23,14 @@
     <span style="position: absolute; top: 90px; left: 123px;"></font> 更新账户信息：<a href="/user/changeName">修改用户名</a>&nbsp;&nbsp;<a href="/user/changePhone">更新手机号</a>&nbsp;&nbsp;<a href="/user/changePwd">修改密码</a></span>
 </div>
 
-<form class="form-inline" action="attendSearch" method="get">
-    <div class="form-group">
-        <label for="exampleInputName2">课程名称</label>
-        <input name="q" type="text" class="form-control" id="exampleInputName2" placeholder="请输入课程名称">
-    </div>
-    <button type="submit" class="btn btn-default">查找</button>
-</form><br>
+<%--<form class="form-inline" action="attendSearch" method="get">--%>
+<%--    <div class="form-group">--%>
+<%--        <label for="exampleInputName2">课程名称</label>--%>
+<%--        <input name="q" type="text" class="form-control" id="exampleInputName2" placeholder="请输入课程名称">--%>
+<%--    </div>--%>
+<%--    <button type="submit" class="btn btn-default">查找</button>--%>
+<%--</form>>--%>
+<br>
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
@@ -37,7 +38,6 @@
         <th>学校名称</th>
         <th>专业名称</th>
         <th>课程详情</th>
-        <th>查看评论</th>
         <th>取消参与</th>
     </tr>
     </thead>
@@ -48,11 +48,10 @@
         <td></td>
         <td></td>
         <td><a href="#">课程详情 </a></td>
-        <td><a href ="#">评论</a></td>
         <form action="#" method="post">
             <td>
 
-                <button class="btn btn-primary btn-block" id="btn" onclick=alert('已加入参与课程，请到个人中心查看！')>
+                <button class="btn btn-primary btn-block" id="btn" onclick=alert('课程已经取消')>
                     取消参与
                 </button>
             </td>
