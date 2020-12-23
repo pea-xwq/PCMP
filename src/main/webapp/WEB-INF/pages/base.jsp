@@ -75,7 +75,7 @@
                 </cr:when>
                 <cr:otherwise>
                     <ul class="nav navbar-nav navbar-right" id="show">
-                        <li><a href="/registerController/userCenter">${sessionScope.USER_SESSION.userName}</a></li>
+                        <li><a href="/registerController/userCenter">${sessionScope.USER_NAME}</a></li>
                         <li><a href="/registerController/logout">退出登录</a></li>
                         <li></li>
                     </ul>

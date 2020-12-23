@@ -23,7 +23,8 @@
         <input name="majorName" type="text" class="form-control" id="exampleInputName2" placeholder="请输入专业名称">
     </div>
     <button type="submit" class="btn btn-default">查找</button>
-</form><br>
+</form>
+<br>
 
 <table class="table table-striped table-bordered">
     <thead>

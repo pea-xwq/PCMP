@@ -22,16 +22,16 @@
 <body>
 <br><br><br><br><br>
 <h3 class="page-title">修改密码</h3><br>
-<form action="/registerController/userCenter" method="post">
+<form action="/user/updatePass" method="post">
     <div class="form-container">
         <div class="form-group">
-            <input type="password" class="form-control ipt" placeholder="新密码" name="password">
+            <input name="password" type="password" class="form-control ipt" placeholder="新密码" >
             <p class="message">6~16位字符（数字、字母、下划线），区分大小写</p>
-            <input type="password" class="form-control" placeholder="确认新密码" name="password2">
+            <input name="spassword" type="password" class="form-control ipt" placeholder="确认新密码" >
         </div>
 
         <div>
-            <button class="btn btn-primary btn-block">确认密码</button>
+            <button class="btn btn-primary btn-block" type="submit">确认密码</button>
         </div>
     </div>
 </form>
