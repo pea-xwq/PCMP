@@ -51,6 +51,8 @@ public class RegisterController {
             user = (User)var8.next();
         } while(!user.getTelephone().equals(telephone) || !user.getPassword().equals(password));
         request.getSession().setAttribute("USER_SESSION",user);
+        request.getSession().setAttribute("USER_NAME",user.getUserName());
+        request.getSession().setAttribute("USER_TALE",user.getTelephone());
         model.addAttribute("telephone", telephone);
         out = response.getWriter();
         out.println("<script>");
@@ -68,6 +70,7 @@ public class RegisterController {
         user1.setPassword(password);
         user1.setTelephone(telephone);
         user1.setUserName(username);
+
         List<User> users = this.userService.findAllUsers();
         Iterator var10 = users.iterator();
 
@@ -75,6 +78,8 @@ public class RegisterController {
         do {
             if (!var10.hasNext()) {
                 this.userService.saveUser(user1);
+                request.getSession().setAttribute("USER_NAME",user1.getUserName());
+                request.getSession().setAttribute("USER_TALE",user1.getTelephone());
                 request.getSession().setAttribute("USER_SESSION",user1);
                 return "home";
             }

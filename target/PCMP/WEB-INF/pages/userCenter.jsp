@@ -18,8 +18,8 @@
 <h3 class="page-title" style="text-align: center">个人中心</h3><br>
 <div style="position: relative; width: 600px; height: 150px;">
     <img class="logo" src="<c:url value="/image/touxiang.jpg"/>" alt="..." style="left: 0;top: 10px;width: 108px;height: 108px">
-    <span style="position: absolute; top: 0; left: 123px;">用户名：${sessionScope.USER_SESSION.userName}</span>
-    <span style="position: absolute; top: 30px; left: 123px;">手机号码：${sessionScope.USER_SESSION.telephone}</span>
+    <span style="position: absolute; top: 0; left: 123px;">用户名：${sessionScope.USER_NAME}</span>
+    <span style="position: absolute; top: 30px; left: 123px;">手机号码：${sessionScope.USER_TALE}</span>
     <span style="position: absolute; top: 90px; left: 123px;"></font> 更新账户信息：<a href="/user/changeName">修改用户名</a>&nbsp;&nbsp;<a href="/user/changePhone">更新手机号</a>&nbsp;&nbsp;<a href="/user/changePwd">修改密码</a></span>
 </div>
 
