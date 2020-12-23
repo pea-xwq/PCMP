@@ -52,34 +52,34 @@ public class ClassController {
         //调用service的方法
         return "course";
     }
-    @RequestMapping("/comment")
-    public String comment(Model model){
-        //调用service的方法
-        List<Comment> comments =commentService.findAllComments();
-        model.addAttribute("comments", comments);
-        return "comment";
-
-    }
-    @RequestMapping("/commentCommit")
-    public String commentCommit(@RequestParam("content") String content, Model model, HttpServletRequest request, HttpServletResponse response,@RequestHeader(value = "referer", required = false) final String referer) throws IOException {
-        //调用service的方法
-        HttpSession session=request.getSession();
-        System.out.println(session);
-        User user= (User) session.getAttribute("USER_SESSION");
-        if(content.length()!=0){
-            commentService.saveComment(user.getId(),content);
-        }else {
-            PrintWriter out = null;
-            response.setContentType("text/html;charset=UTF-8");
-            out = response.getWriter();
-            out.println("<script>");
-            out.println("alert('评论不能为空！')");
-            out.println("history.back();");
-            out.println("</script>");
-            out.close();
-        }
-        return "redirect:"+referer;
-    }
+//    @RequestMapping("/comment")
+//    public String comment(Model model){
+//        //调用service的方法
+//        List<Comment> comments =commentService.findAllComments();
+//        model.addAttribute("comments", comments);
+//        return "comment";
+//
+//    }
+//    @RequestMapping("/commentCommit")
+//    public String commentCommit(@RequestParam("content") String content, Model model, HttpServletRequest request, HttpServletResponse response,@RequestHeader(value = "referer", required = false) final String referer) throws IOException {
+//        //调用service的方法
+//        HttpSession session=request.getSession();
+//        System.out.println(session);
+//        User user= (User) session.getAttribute("USER_SESSION");
+//        if(content.length()!=0){
+//            commentService.saveComment(user.getId(),content);
+//        }else {
+//            PrintWriter out = null;
+//            response.setContentType("text/html;charset=UTF-8");
+//            out = response.getWriter();
+//            out.println("<script>");
+//            out.println("alert('评论不能为空！')");
+//            out.println("history.back();");
+//            out.println("</script>");
+//            out.close();
+//        }
+//        return "redirect:"+referer;
+//    }
     @RequestMapping("/home")
     public String home(){
         //调用service的方法

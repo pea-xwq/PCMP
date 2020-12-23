@@ -51,7 +51,7 @@
 
     </span>
 
-<form action="/class/commentCommit" method="post">
+<form action="/comment/commentCommit" method="post">
     <div class="form-container">
         <div class="form-content">
             <textarea name="content" rows="5" cols="88" placeholder="请输入您的评论" class="" form-control></textarea>

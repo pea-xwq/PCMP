@@ -46,10 +46,10 @@
                 <li><a href="/class/home">首页 <span class="sr-only">(current)</span></a></li>
                 <li><a href="/class/recommend">课程</a></li>
 
-                <li><a href="/class/comment">树洞</a></li>
+                <li><a href="/comment/commentShow">树洞</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">检索方式 <span class="caret"></span></a>
+                       aria-expanded="false">课程查询<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/class/schoolQuery">按学校专业查询</a></li>
                         <li role="separator" class="divider"></li>
