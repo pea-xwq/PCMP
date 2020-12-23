@@ -6,7 +6,7 @@
 <mapper namespace="com.ssm.dao.CommentDao">
 
     <select id="findAllComments" resultType="com.ssm.domain.Comment">
-        select * from comment;
+        select * from comment order by id desc;
     </select>
 
      <insert id="saveComment" parameterType="com.ssm.domain.Comment">

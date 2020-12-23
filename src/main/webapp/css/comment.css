@@ -12,7 +12,7 @@
     width: 650px;
     height: 90%;
     text-align: left;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
 
 }
@@ -20,6 +20,7 @@
     background: #F5F5F5;
     width: 660px;
     height: 200px;
+    margin-left: 30px;
     text-align: center;
 }
 .hr_t{
