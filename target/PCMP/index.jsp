@@ -65,7 +65,7 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right" id="show">
-                <li><a href="/class/user">你好</a></li>
+                <li><a href="#">你好</a></li>
                 <li><a href="/registerController/registerAndLogin">登录</a></li>
                 <li></li>
             </ul>

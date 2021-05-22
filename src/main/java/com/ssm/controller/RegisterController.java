@@ -3,6 +3,7 @@ package com.ssm.controller;
 import com.ssm.domain.Course;
 import com.ssm.domain.User;
 import com.ssm.service.AttendService;
+import com.ssm.service.CourseService;
 import com.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,15 @@ public class RegisterController {
     private UserService userService;
     @Autowired
     private AttendService attendService;
+    @Autowired
+    private CourseService courseService;
     @RequestMapping({"/registerAndLogin"})
     public String registerAndLogin() {
-        return "login";
+        return "login2";
+    }
+    @RequestMapping({"/loginToRegister"})
+    public String loginToRegister() {
+        return "register";
     }
 
     @RequestMapping({"/login"})
@@ -61,6 +68,8 @@ public class RegisterController {
         out.println("<script>");
         out.println("alert('登陆成功')");
         out.println("</script>");
+        List<Course> courses = courseService.findTop5();
+        model.addAttribute("courses", courses);
         return "home";
     }
 
@@ -84,6 +93,8 @@ public class RegisterController {
                 request.getSession().setAttribute("USER_NAME",user1.getUserName());
                 request.getSession().setAttribute("USER_TALE",user1.getTelephone());
                 request.getSession().setAttribute("USER_SESSION",user1);
+                List<Course> courses = courseService.findTop5();
+                model.addAttribute("courses", courses);
                 return "home";
             }
             user = (User)var10.next();
@@ -97,8 +108,11 @@ public class RegisterController {
         return null;
     }
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
-    public String toLogout(){
-        return "login";
+    public String toLogout(HttpServletRequest request){
+        HttpSession session=request.getSession();
+        session.removeAttribute("USER_SESSION");
+        return "login2";
+
     }
 
     @RequestMapping(value = "/userCenter")

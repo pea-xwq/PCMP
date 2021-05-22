@@ -26,8 +26,7 @@
     <div class="card-wrap">
         <div class="card border-0 shadow card--welcome is-show" id="welcome">
             <div class="card-body">
-                <h2 class="card-title">欢迎光临</h2>
-                <p>欢迎进入登录页面</p>
+                <h2 class="page-title">欢迎光临</h2>
                 <div class="btn-wrap"><a class="btn btn-lg btn-register js-btn" data-target="register">注册</a><a class="btn btn-lg btn-login js-btn" data-target="login">登录</a></div>
             </div>
         </div>
@@ -36,7 +35,6 @@
                 <h2 class="card-title">会员注册</h2>
                 <p class="card-text">第三方注册</p>
                 <p class="badge-wrap"><a class="badge"><i class="fab fa-facebook-f"></i></a><a class="badge"><i class="fab fa-google"></i></a><a class="badge"><i class="fab fa-twitter"></i></a><a class="badge"><i class="fab fa-github"></i></a></p>
-                <p>使用您的手机号进行注册</p>
                 <form  method="post" action="${pageContext.request.contextPath}/registerController/register">
                     <div class="form-group">
                         <input name="username" class="form-control" type="text" placeholder="名称" required="required" />

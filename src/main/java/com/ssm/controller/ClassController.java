@@ -171,12 +171,15 @@ public class ClassController {
 
     }
     @RequestMapping(value = "/cancelAttend")
-    public String userCenter(int cid,HttpServletRequest request,@RequestHeader(value = "referer", required = false) final String referer){
+    public String cancelAttend(Model model,int cid,HttpServletRequest request,@RequestHeader(value = "referer", required = false) final String referer){
         HttpSession session=request.getSession();
         User user= (User) session.getAttribute("USER_SESSION");
+        request.getSession().setAttribute("USER_NAME",user.getUserName());
         attendService.cancelAttend(user.getId(),cid);
         System.out.println(cid);
         //调用service的方法
-        return "redirect:"+referer;
+        List<Course> courses = attendService.showAttend(user.getId());
+        model.addAttribute("courses", courses);
+        return "userCenter";
     }
 }

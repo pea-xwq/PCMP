@@ -41,7 +41,7 @@
             <div class="introduce">
                 <div class="introduce-l">
                     <br><br>
-                    <p><img class="courseimg2" src="https://p.ananas.chaoxing.com/star3/origin/effadb037789a73f7c9217ab4553c3bb.jpg" alt="..." ></p>
+                    <p><img class="courseimg2" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=347659111,2902777865&fm=26&gp=0.jpg" alt="..." ></p>
                 </div>
                 <div class="introduce-r">
                     <h3>大学生创业导论</h3>
@@ -61,7 +61,7 @@
         <div class="panel-body">
             <div class="introduce">
                 <div class="introduce-l">
-                    <p><img class="courseimg2" src="http://p.ananas.chaoxing.com/star3/270_169c/56a7296ee4b0e85354bcc267.jpg" alt="..." ></p>
+                    <p><img class="courseimg2" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=756326490,2393148638&fm=11&gp=0.jpg" alt="..." ></p>
                 </div>
                 <div class="introduce-r">
                     <h3>大脑的奥秘：神经科学导论</h3>
@@ -81,7 +81,7 @@
             <div class="introduce">
                 <div class="introduce-l">
                     <br><br>
-                    <p><img class="courseimg2" src="https://p.ananas.chaoxing.com/star3/270_169c/8118778215cc48cc2c9e0b7f3d6ac0d8.jpg" alt="..." ></p>
+                    <p><img class="courseimg2" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2663746191,2133387287&fm=26&gp=0.jpg" alt="..." ></p>
                 </div>
                 <div class="introduce-r">
                     <h3>遗传学</h3>
