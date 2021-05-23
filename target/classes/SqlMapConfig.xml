@@ -14,9 +14,9 @@
 <!--             配置数据源（连接池）-->
             <dataSource type="POOLED">
 <!--                配置连接数据库的4个基本信息-->
-                <property name="driver" value="com.mysql.jc.jdbc.Driver"/>
-               <property name="url" value="jdbc:mysql://rm-uf6b72q250vi706j45o.mysql.rds.aliyuncs.com/pcmp"/>
-               <property name="username" value="xwq1"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://rm-uf6b72q250vi706j45o.mysql.rds.aliyuncs.com/pcmp"/>
+                <property name="username" value="xwq1"/>
                 <property name="password" value="Xwq993961218"/>
             </dataSource>
         </environment>

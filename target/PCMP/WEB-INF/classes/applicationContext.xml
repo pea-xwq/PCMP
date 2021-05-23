@@ -25,6 +25,7 @@
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
         <property name="jdbcUrl" value="jdbc:mysql://rm-uf6b72q250vi706j45o.mysql.rds.aliyuncs.com/pcmp?serverTimezone=UTC"/>
         <property name="user" value="xwq1"/>
+        <!--serverTimezone=UTC-->
         <property name="password" value="Xwq993961218"/>
     </bean>
     <!--配置SqlSessionFactory工厂-->
